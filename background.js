@@ -1,3 +1,3 @@
-document.getElementById("view").addEventListener('click', function() {
-    chrome
-});
+chrome.runtime.onMessage.addListener(data => {
+    
+})
