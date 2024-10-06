@@ -1,3 +1,6 @@
+// Form element
+const new_card_form = document.getElementById("new-card-form")
+
 // Button elements
 const create = document.getElementById("create")
 const view = document.getElementById("view")
@@ -8,13 +11,17 @@ const back_card = document.getElementById("back-card")
 
 // Create a card
 create.onclick = function() {
-    const card = {
-        front_info: front_card.value, 
-        back_info: back_card.value
-    }
-    chrome.runtime.sendMessage({ event: 'create', card })
-}
 
+    event.preventDefault();
+
+    if (front_card.value && back_card.value) {
+        localStorage.setItem (front_card.value, back_card.value);
+        new_card_form.submit();
+
+    } else {
+        console.log("Invalid Card")
+    }
+}
 
 // View all cards stored
 view.onclick = function() {
