@@ -7,4 +7,4 @@ if (localStorage.length > 0) {
     } 
 } else {
     console.log("No cards to display");
-}
+};
