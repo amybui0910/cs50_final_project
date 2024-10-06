@@ -9,7 +9,6 @@
       "default_icon": "images/flashcard_logo.png"
     }, 
     "background": {
-        "service-worker": "background.js", 
-        "type": "module"
+        "service_worker": "background.js"
     }
   }
