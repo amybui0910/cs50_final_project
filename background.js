@@ -1,6 +1,6 @@
 // timer
 chrome.alarms.create("popupAlarm", { 
-    periodInMinutes:  5, 
+    periodInMinutes:  0.5, 
 });
 
 // notification
