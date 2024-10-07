@@ -1,10 +1,17 @@
+// timer
 chrome.alarms.create("popupAlarm", { 
-    periodInMinutes:  1, 
+    periodInMinutes:  5, 
 });
 
+// notification
 chrome.alarms.onAlarm.addListener((alarm) => {
-    console.log("Alarm triggered")
     if (alarm.name === "popupAlarm") {
-        alert("PLEASE WORK.")
+        console.log("Alarm triggered"); // testing
+        chrome.windows.create( {
+            url: chrome.runtime.getURL("popup.html"), 
+            type: "popup",
+            width: 400, 
+            height: 300
+        }); 
     }
 });
