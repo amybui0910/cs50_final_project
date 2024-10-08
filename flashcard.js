@@ -11,24 +11,24 @@ const back_card = document.getElementById("back-card");
 
 const name = "flashcards";
 
-if (!(name in localStorage)) {
+// check if flashcards exist
+if (!localStorage.getItem(name)) {
     localStorage.setItem(name, JSON.stringify([]));
 }
 
 // Create a card
 create.onclick = function() {
 
-    event.preventDefault();
+    event.preventDefault(); // pause form submition
 
-    if (front_card.value && back_card.value) {
-        let card = { front: front_card.value, back: back_card.value };
-        let cards = JSON.parse(localStorage.getItem(name));
+    if (front_card.value && back_card.value) { // both values are filled
+        let card = { front: front_card.value, back: back_card.value }; 
+        let cards = JSON.parse(localStorage.getItem(name)); // add card
 
-        cards.push(card);
+        cards.push(card); // add card to cards
+        localStorage.setItem(name, JSON.stringify(cards)); // update local storage
 
-        localStorage.setItem(name, JSON.stringify(cards));
-
-        new_card_form.submit();
+        new_card_form.submit(); // submit form
 
     } else {
         console.log("Invalid Card")
@@ -39,3 +39,15 @@ create.onclick = function() {
 view.onclick = function() {
     location.href = "cards.html"
 }
+
+// set timers
+let timers = document.querySelector('select');
+timers.addEventListener('change', function() {
+    if (document.querySelector('#off').selected) { // turn alarm off
+        chrome.alarms.clear("popupAlarm");
+    } else {
+        chrome.alarms.create("popupAlarm", {
+            periodInMinutes: parseInt(timers.value)
+        })
+    }
+})
