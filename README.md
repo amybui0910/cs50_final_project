@@ -1,6 +1,6 @@
 # cs50_final_project
 # Flashcard chrome extension 
-#### Video Demo: 
+#### Video Demo: https://youtu.be/OndbzlF2u1A
 #### Description: 
 
 This project is intended to be submitted for the Harvard cs50 2024 online course. Uses the following resources
