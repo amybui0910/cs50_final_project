@@ -47,7 +47,7 @@ timers.addEventListener('change', function() {
         chrome.alarms.clear("popupAlarm");
     } else {
         chrome.alarms.create("popupAlarm", {
-            periodInMinutes: parseInt(timers.value)
+            periodInMinutes: parseInt(timers.value) // set timer
         })
     }
 })
